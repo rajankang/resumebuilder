@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work ED Code Sandbox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://worked.com/favicon-16x16.png" type="image/png">
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">
+        <img src="https://worked.com/WorkED-logo.svg" alt="Work ED Logo" style="height: 50px;">
+    </div>
+    <div class="control-buttons">
+        <button onclick="clearCode()">Clear Code</button>
+        <button onclick="exportCode()">Export Site</button>
+    </div>
+</div>
+
+<div class="template-buttons">
+    <button onclick="loadTemplate('template1')">Template 1</button>
+    <button onclick="loadTemplate('template2')">Template 2</button>
+    <button onclick="loadTemplate('template3')">Template 3</button>
+</div>
+
+<div class="container">
+    <div class="editor">
+        <div class="tabs">
+            <div class="tab html active" onclick="switchTab('html')">HTML</div>
+            <div class="tab css" onclick="switchTab('css')">CSS</div>
+        </div>
+        <textarea id="html" class="code" placeholder="Write your HTML here"></textarea>
+        <textarea id="css" class="code" placeholder="Write your CSS here" style="display: none;"></textarea>
+    </div>
+    <div class="resizer" onmousedown="startResizing(event)">
+        <div class="resize-bar">&#8942;</div>
+    </div>
+    <div class="preview">
+        <iframe id="preview"></iframe>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Prompt Engineering for Code Generation &copy; 2024 - Work ED</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
