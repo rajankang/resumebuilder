@@ -5,6 +5,15 @@
         document.querySelector('.' + tab).classList.add('active');
         document.querySelectorAll('.code').forEach(el => el.style.display = 'none');
         document.getElementById(tab).style.display = 'block';
+        document.querySelectorAll('.copy-buttons button').forEach(button => {
+            if (button.textContent.includes('CSS') && tab === 'css') {
+                button.style.display = 'inline-block';
+            } else if (button.textContent.includes('HTML') && tab === 'html') {
+                button.style.display = 'inline-block';
+            } else {
+                button.style.display = 'none';
+            } })
+    
     }
 
     function updatePreview() {
@@ -61,7 +70,7 @@ function exportCode() {
 function clearCode() {
     document.getElementById('html').value = '';
     document.getElementById('css').value = '';
-    updatePreview(); // Make sure to clear the preview as well
+    updatePreview();
 }
 
 function openLink(url) {
@@ -336,4 +345,27 @@ function loadTemplate(templateName) {
     // Switch to the HTML tab and update the preview
     switchTab('html');
     updatePreview();
+}
+
+function copyToClipboard(elementId) {
+    var content = document.getElementById(elementId).value;
+    navigator.clipboard.writeText(content).then(function() {
+        alert('Copied to clipboard!');
+    }, function(err) {
+        console.error('Could not copy text: ', err);
+    });
+}
+
+function openLesson(evt, lessonName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(lessonName).style.display = "block";
+    evt.currentTarget.className += " active";
 }

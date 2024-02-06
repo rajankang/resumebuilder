@@ -20,6 +20,56 @@
     </div>
 </div>
 
+<div class="instruction-section">
+    <div class="lesson-tabs">
+        <button class="tablink" onclick="openLesson(event, 'Introduction')">Introduction</button>
+        <button class="tablink" onclick="openLesson(event, 'Creating')">Creating Your Resume</button>
+        <button class="tablink" onclick="openLesson(event, 'Customizing')">Customizing Your Resume</button>
+        <button class="tablink" onclick="openLesson(event, 'Exporting')">Exporting and Sharing</button>
+    </div>
+
+    <div id="Introduction" class="tabcontent">
+        <h3>Introduction to Resume Building with AI</h3>
+        <p>Welcome to your first step in creating a resume website using AI! No coding experience? No problem. We will walk you through the process step by step. You'll learn how to generate the initial structure of your resume, customize it with your own details, and then export it to share with others. Along the way, you'll also discover how to use AI to assist you in coding and content creation.</p>
+    </div>
+
+    <div id="Creating" class="tabcontent" style="display:none">
+        <h3>Creating Your Resume</h3>
+        <p>First things first, let's get the basics down. If you're starting from scratch, don't worry. Here's a simple way to begin:</p>
+        <ul>
+            <li>Choose one of the templates to insert a basic resume structure into the editor. This will give you simple HTML/CSS you can start with.</li>
+            <li>If you prefer to start with your own code, ask ChatGPT to "create a basic HTML template for a resume"</li>
+            <li>Remember, the HTML document is where you'll add all your content, like your name, experiences, skills, and anything else you want to include in your resume.</li>
+        </ul>
+        <p>Tip: Always preview your resume by looking at the Preview pane to see how your changes appear in real time.</p>
+    </div>    
+
+    <div id="Customizing" class="tabcontent" style="display:none">
+        <h3>Customizing Your Resume</h3>
+        <p>AI can help you add, format, or even suggest content for your resume. Here are some steps and prompts to guide you:</p>
+        <ul>
+            <li>Copy the code and paste it into ChatGPT with a specific request. For example, "Please add a section for my skills including HTML and Machine Learning."</li>
+            <li>To customize the design, do the same with your CSS. Ask ChatGPT for color themes, font suggestions, or layout improvements, like "Suggest a modern color scheme for my resume."</li>
+            <li>Use the feedback and suggestions from ChatGPT to refine your content and design. Don't hesitate to ask for examples or clarification!</li>
+        </ul>
+        <p>Remember, building a resume is iterative. Keep refining until you're happy with the result.</p>
+    </div>    
+
+    <div id="Exporting" class="tabcontent" style="display:none">
+        <h3>Exporting and Sharing Your Resume</h3>
+        <p>Congratulations on creating your resume! Now it's time to share it with the world, and maybe even get some class credit for your hard work. Here's what to do next:</p>
+        <ul>
+            <li>Click the "Export Site" button to download your resume as a zip file. This file contains your HTML and CSS code.</li>
+            <li>To host your resume online for free, consider using GitHub Pages. Create a GitHub account, upload your project, and GitHub Pages will provide you with a URL to your live resume.</li>
+            <li>Check out online tutorials on how to use GitHub Pages if you're unfamiliar with GitHub. It's a valuable skill to have!</li>
+            <li>Finally, don't forget to submit your resume to AIresumes@worked.com for class credit. Include your first and last name in the email.</li>
+        </ul>
+        <p>This is just the beginning of your journey with coding and AI. Keep exploring, learning, and creating!</p>
+    </div>
+    
+</div>
+
+
 <div class="template-buttons">
     <button onclick="loadTemplate('template1')">Template 1</button>
     <button onclick="loadTemplate('template2')">Template 2</button>
@@ -32,9 +82,14 @@
             <div class="tab html active" onclick="switchTab('html')">HTML</div>
             <div class="tab css" onclick="switchTab('css')">CSS</div>
         </div>
+        <div class="copy-buttons">
+            <button onclick="copyToClipboard('html')" style="margin-right: 10px;">Copy HTML</button>
+            <button onclick="copyToClipboard('css')">Copy CSS</button>
+        </div>
         <textarea id="html" class="code" placeholder="Write your HTML here"></textarea>
         <textarea id="css" class="code" placeholder="Write your CSS here" style="display: none;"></textarea>
     </div>
+    
     <div class="resizer" onmousedown="startResizing(event)">
         <div class="resize-bar">&#8942;</div>
     </div>
@@ -44,7 +99,7 @@
 </div>
 
 <div class="footer">
-    <p>Prompt Engineering for Code Generation &copy; 2024 - Work ED</p>
+    <p>Resume Website Builder &copy; 2024 - Work ED</p>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>

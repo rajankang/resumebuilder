@@ -7,6 +7,11 @@
             --editor-bg: #252526;
         }
 
+        .copy-buttons {
+            text-align: right;
+            padding: 10px;
+        }        
+
         body, html {
             height: 100%;
             margin: 0;
@@ -21,7 +26,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background: var(--container-bg); /* Ensure background consistency */
+    background: var(--container-bg);
 }
                
         .footer {
@@ -38,7 +43,7 @@
 
         .container {
             display: flex;
-            height: calc(100% - 140px); /* Adjusted for logo */
+            height: calc(100% - 140px);
         }
 
         .control-buttons button {
@@ -54,7 +59,7 @@
 .template-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px; /* Adds space between buttons */
+    gap: 10px;
     padding: 20px;
 }
 
@@ -74,18 +79,18 @@
 }
 
 
-/* Ensure buttons do not overflow the header space on smaller screens */
+
 .control-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* Adds space between buttons */
+    gap: 10px;
 }
 
         .editor, .preview {
             flex-grow: 1;
             overflow: auto;
             background: var(--editor-bg);
-            position: relative; /* For absolute positioning of export button */
+            position: relative;
         }
 
         .resizer {
@@ -156,3 +161,81 @@
             border-radius: 5px;
         }
 
+/* Style the tab buttons */
+.lesson-tabs button {
+    background-color: #2EA363;
+    float: left;
+    border: 1px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.lesson-tabs button.active {
+    background-color: #135c34;
+}
+
+.tabcontent {
+    clear: both;
+    padding: 6px 12px;
+    border-top: none;
+    background-color: #135c34;
+}
+
+.container {
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.editor, .preview {
+    border-right: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+    .editor, .preview {
+        border-right: none; 
+        border-bottom: 1px solid #eee; 
+    }
+    .container {
+        flex-direction: column;
+    }
+}
+
+/* Tabs and Buttons Styling */
+.template-buttons button, .control-buttons button {
+    background-color: #2EA363;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+    font-size: 16px; 
+}
+
+.tablink {
+    background-color: #2EA363;
+    color: white;
+    padding: 7px 15px;
+    cursor: pointer; 
+    font-size: 11px; 
+}
+
+.tablink:hover, .template-buttons button:hover, .control-buttons button:hover {
+    background-color: #2EA363; 
+}
+
+.tablink.active {
+    background-color: #333; 
+    color: #fff; 
+}
+
+.tabcontent {
+    border: 1px solid #ddd;
+    margin-top: 20px; 
+    padding: 20px; 
+    background-color: #333; 
+}
